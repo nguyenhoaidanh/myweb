@@ -2,33 +2,55 @@
 	margin:0;
 	padding:0;
 }
+body
+{
+	background-color: #dddbd2;
+}
+#cartLable
+{
+	font-size: 13px;
+
+}
 ul.nav li a:hover  {
 		  background-color: transparent;
 		  color: yellow;
 }
-ul.nav li.active a{
+ul.nav li.active a,ul.nav li.active{
 			color:yellow;
 			background-color: transparent;
 			border: none;
+}
+ul.nav li a{
+			
+			background-color: transparent;
+			border: none;
+			color: white;
 }
 .caret {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 8px solid white;
 }
-ul.nav li a{
-			
-			background-color: transparent;
-			border: none;
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
+.dropdown-menu
+{	margin-top: -20px;
+	margin-left: 60px;
+	font-weight: bold;
+	
 }
+ #account-menu a
+ {
+ 	color: red;
+ }
 #messLogin,#messUsername,#messPass,#messEmail
 {
 	color: red;
 }
-ul.nav li a
-{
-	color: white;
-}
+
+
 #carousel-id
 {
 	height: 80vh;
@@ -77,7 +99,7 @@ ul.nav li a
 nav.scale	
 {
 	height: 10px;
-	background-color: green;
+	background-color: #bf0000;
 }
 #nav-form
 {
@@ -102,7 +124,7 @@ footer
 {
 	clear:both;
 	text-align:center;
-	background-color:green;
+	background-color:#bf0000;
 	height:40px;
 	width:100vw;
 	color:white;

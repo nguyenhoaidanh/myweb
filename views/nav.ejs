@@ -18,22 +18,30 @@
 
 		    <ul class="nav navbar-nav">
 		      <li class="active"><a href="#"><img src="/image/home.png" width="38px"></img>&nbsp;Home</a></li>
-		      <li><a href="#"><img src="/image/cart.png" width="40px"></img>&nbsp;Cart</a></li>
+		      <li><a href="#"><img src="/image/cart.png" width="40px"></img>&nbsp;Cart
+		    <span class="label label-warning" id="cartLable">0</span></a></li>
 		       <li>
-			      <a href='#modal-login' data-toggle="modal" data-content="">
-			      	<img src="/image/ava.png" width="40px"></img> 
-			       	&nbsp;
-			       <span id="username"><%=data.username%></span>
-			       
+			      <a href='#modal-login' data-toggle="modal">
+				      	<img src="/image/ava.png" width="40px"></img> 
+				       <span id="username"><%=data.username%></span>
+				       <span class="caret"> </span>
+
+				       <ul class="dropdown-menu" id="account-menu">
+				          <li><a href="/profile">Edit profile</a></li>
+				          <li><a href="#">More</a></li>
+				         
+				          <li><a href="/logout">Logout</a></li>
+				        </ul>
 			       </a>
+					    
+				        
+				      	
+				     
 		      </li>
-		      <li> <a href="#" id="account-popover" data-toggle="popover"  title="Popover Header" data-content=""><span class="caret"></span></a>
-		      </li>
-		     			<ul id="popover-content" class="list-group" style="display: none">
-						  <a href="#" class="list-group-item">Edit Event</a>
-						  <a href="#" class="list-group-item">Invite Members</a>
-						  <a href="#" class="list-group-item">Delete Event</a>
-						</ul>
+		      	
+				
+		      
+		     			
 		    </ul>
 		    		
 		  </div>

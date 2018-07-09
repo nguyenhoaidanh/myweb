@@ -1,4 +1,4 @@
 exports.index=function(req,res){
-		res.render('index',{data:''});
-	
+		var data={username:req.session.username};
+		res.render('index',{data:data});
 }

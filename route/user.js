@@ -1,5 +1,5 @@
 exports.login=function(req,res){
-	var message='';
+	var message='';	console.log(req.session);
 	if (req.method == "POST") {	
 		var email=req.body.email;
 		var pass=req.body.pass;
@@ -8,9 +8,9 @@ exports.login=function(req,res){
 			if (err) throw err;
 			else { 
 				if (results[0].length>0)
-				 {
-					res.render('index.ejs',{data:results[0][0]});
+				 {	req.session.username=results[0][0].username;
 					
+					res.send('/');
            		} 
            		else { 
 		         	  	message = 'Email or password is not correct.';
@@ -26,7 +26,8 @@ exports.login=function(req,res){
 }
 
 exports.signUp=function(req,res){
-	var message='';	
+	var message='';
+		console.log(req.session);
 	if (req.method == "POST") {	
 		var pass=req.body.pass;
 		var username=req.body.username;
@@ -43,16 +44,16 @@ exports.signUp=function(req,res){
 					var tem=JSON.stringify(results[0]);
 					var tem1=tem.split('"');
 					message=tem1[tem1.length-2];
-
+					console.log('Check sign up: '+message);
 				if (message=='')
-				{	
+				{	req.session.username=username;
 					sql= SqlString.format('insert into users(username,phone,email,pass,dateDK,gender,bDate,imgSrc) values(?,?,?,?,Now(),?,?,?);', [username,phone,email,pass,gender,bDate,imgSrc]);
 					db.query(sql, function (err, results) {
-					if (err) throw err;
-					else{
-						
-						res.render('index.ejs',{data:req.body});
-						}
+						if (err) throw err;
+						else{
+							
+							res.send('/profile');
+							}
 					});
 					
 					
@@ -67,4 +68,10 @@ exports.signUp=function(req,res){
 	else {
 		res.send("get upp neeeee");
 	}
+}
+exports.profile=function(req,res){
+	res.render('profile.ejs');
+}
+exports.logout=function(req,res){
+	res.send('logout');
 }

@@ -3,7 +3,24 @@ $(function(){
 	 new WOW().init();
 	
 	 //set ava title
-	 if($('#username').html()=='')$('#username').html('Login');
+	 if($('#username').html()=='')
+	 {
+	 	$('#username').html('Login');
+	 	
+	 
+	 	$('.caret').css('display','none');
+
+	}
+	 else {
+	 	$("a[href='#modal-login']").parent().addClass('dropdown');
+	 	$("a[href='#modal-login']").attr('data-toggle', 'dropdown');
+	 	$("a[href='#modal-login']").addClass('dropdown-toggle');
+	 
+	 	$("a[href='#modal-login']").attr('href','#');
+
+
+	}
+
 
 	//add remove active nav item
 	 $('ul.nav li').click(function(){ 
@@ -25,12 +42,7 @@ $(function(){
 
 	 });
 	 
-	 //account popover
-	$('[data-toggle="popover"]').popover({html:true,
-				    content: function() {
-	return $('#popover-content').html();
-				        }
-	 });  
+	 
 
 
 
@@ -50,12 +62,9 @@ $(function(){
 	 			if(data=='Email or password is not correct.')
 	 				$('#messLogin').html(data); //alert
 	 			else
-	 			{	//render with user info
-	 				document.write(data); 
-
-	 				
-	 			  	
-	 			  
+	 			{	//redict home  
+	 				window.location.href =data;
+	  
 	 			}
 	 		}
 	 	});
@@ -65,39 +74,42 @@ $(function(){
 
 	 //sign up submit
 	 $('#signUp-form').submit(function (e) { 
+	 		var pw=$("#signUp-form .form-group input[name=pass]").val();
+	 		var rpw=$("#signUp-form .form-group input[name=reppass]").val();
+	 	if(pw!=rpw)
+	 	{	 $('#messPass').html('Two password not match, please try again.');
+	 		return false;
+	 		
+	 	}
 
 	 	var data={
 	 		username:$("#signUp-form .form-group input[type=text]").val(),
 	 		email:$("#signUp-form .form-group input[type=email]").val(),
-	 		pass:$("#signUp-form .form-group input[name=pass]").val(),
-	 		reppass:$("#signUp-form .form-group input[name=reppass]").val(),
+	 		pass:pw,
+	 		reppass:rpw,
 	 		gender:$("#signUp-form .form-group input[name=gender]:checked").val(),
 	 		bDate:$("#signUp-form .form-group input[type=date]").val(),
 	 	}; 
-	 	if(data.pass!=data.reppass){
-	 		$('#messPass').html('Two password not match, please try again.');
-	 		return;
-	 	}
+	 	
+		 	e.preventDefault();
 
-	 	e.preventDefault();
-
-	 	$.ajax({
-	 		data:data,
-	 		method:'post',
-	 		url: '/profile',						
-	 		success: function(data) {
-	 			if(data=='This email was used')
-	 				$('#messEmail').html(data); //alert
-	 			if(data=='This username was used')
-	 				$('#messUsername').html(data); //alert
-	 			else{
-	 			 document.write(data); 
-	 			
-	 			  	
-	 			  
-	 		}
-	 	} 
-	 	}); 
+		 	$.ajax({
+		 		data:data,
+		 		method:'post',
+		 		url: '/profile',						
+		 		success: function(data) {
+		 			if(data=='This email was used')
+		 				$('#messEmail').html(data); //alert
+		 			else {
+			 				if(data=='This username was used')
+			 				$('#messUsername').html(data); //alert
+		 			else
+		 				window.location.href=data; 
+		 			
+		 			}
+		 		} 
+			 }); 
+		 
 	 });
 				
 			

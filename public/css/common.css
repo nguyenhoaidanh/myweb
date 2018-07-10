@@ -9,7 +9,6 @@ body
 #cartLable
 {
 	font-size: 13px;
-
 }
 ul.nav li a:hover  {
 		  background-color: transparent;
@@ -20,8 +19,7 @@ ul.nav li.active a,ul.nav li.active{
 			background-color: transparent;
 			border: none;
 }
-ul.nav li a{
-			
+ul.nav li a{			
 			background-color: transparent;
 			border: none;
 			color: white;
@@ -49,8 +47,6 @@ ul.nav li a{
 {
 	color: red;
 }
-
-
 #carousel-id
 {
 	height: 80vh;
@@ -87,7 +83,6 @@ ul.nav li a{
 	transform: scale(0.8,0.8);
 	margin-top:-10px;
 }
-
 .navbar-brand img.scale
 {
 	margin-top:-15px;
@@ -119,7 +114,6 @@ nav.scale
 	width:55px;
 	background-color:lightblue;
 }
-
 footer
 {
 	clear:both;

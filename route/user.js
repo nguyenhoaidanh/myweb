@@ -9,8 +9,28 @@ exports.login=function(req,res){
 			else { 
 				if (results[0].length>0)
 				 {	req.session.username=results[0][0].username;
+					req.session.userId=results[0][0].id;
+
+
+					sql = SqlString.format('select count(*) as numberInCart from inCart where userId=?', [req.session.userId]);
+					db.query(sql, function (err, results) {
+						if (err) throw err;
+						else { 
+							req.session.numberInCart=results[0].numberInCart;
+							
+							res.send('/');
+							
+
+						}
+					});
+
+
+
+
+
+
+
 					
-					res.send('/');
            		} 
            		else { 
 		         	  	message = 'Email or password is not correct.';
@@ -19,6 +39,14 @@ exports.login=function(req,res){
 
 			}
 		});
+
+
+
+
+
+
+
+
 	}
 	else {
 		res.render('index.ejs',{data:''});
@@ -36,24 +64,52 @@ exports.signUp=function(req,res){
 		var bDate=req.body.bDate;
 		console.log(bDate);
 		var phone='',imgSrc='';
-		var sql = SqlString.format('SELECT isAvailable(?,?)', [email, username]);
+		var sql = SqlString.format('SELECT isAvailable(?,?) as isAvailable', [email, username]);
 		db.query(sql, function (err, results) {
 			if (err) throw err;
 			else { 
 				// get message username is available or email 
-					var tem=JSON.stringify(results[0]);
-					var tem1=tem.split('"');
-					message=tem1[tem1.length-2];
+	
+					message =results[0].isAvailable;
 					console.log('Check sign up: '+message);
+
 				if (message=='')
-				{	req.session.username=username;
+				{	
 					sql= SqlString.format('insert into users(username,phone,email,pass,dateDK,gender,bDate,imgSrc) values(?,?,?,?,Now(),?,?,?);', [username,phone,email,pass,gender,bDate,imgSrc]);
 					db.query(sql, function (err, results) {
 						if (err) throw err;
 						else{
+							sql = SqlString.format('CALL getUserInfo(?,?)', [email, pass]);
+							db.query(sql, function (err, results) {
+								if (err) throw err;
+								else { 
+									if (results[0].length>0)
+									{	req.session.username=results[0][0].username;
+										req.session.userId=results[0][0].id;
+
+										sql = SqlString.format('select count(*) as numberInCart from inCart where userId=?', [req.session.userId]);
+										db.query(sql, function (err, results) {
+											if (err) throw err;
+											else { 
+												req.session.numberInCart=results[0].numberInCart;
+												res.send('/profile');
+												
+
+											}
+										});
+
+
+
+										
+					           		} 
+					           		else { 
+							         	  	console.log("some error");
+									}
+
+								}
+							});
 							
-							res.send('/profile');
-							}
+						}
 					});
 					
 					
@@ -70,8 +126,42 @@ exports.signUp=function(req,res){
 	}
 }
 exports.profile=function(req,res){
-	res.render('profile.ejs');
+	var data={username:req.session.username,
+		userId:req.session.userId,
+		numberInCart:req.session.numberInCart
+		
+	};
+	res.render('profile.ejs',{data:data});
 }
 exports.logout=function(req,res){
-	res.send('logout');
+	req.session.destroy(function (err) {
+        res.redirect("/");
+    })
+}
+exports.cart=function(req,res){
+	var data={username:req.session.username,
+		userId:req.session.userId,
+		numberInCart:req.session.numberInCart
+		
+	};
+	if(data.userId!=null)
+	{
+		var sql = SqlString.format('select * from  inCart where userId=?', [req.session.userId]);
+		db.query(sql, function (err, results) {
+			if (err) throw err;
+			else { 
+				
+				data.arrayItem=results;
+				console.log(results);
+			
+				console.log(data.arrayItem.length);
+				res.render('cart.ejs',{data:data});
+
+			}
+		});
+	
+	}
+	else
+		res.send('Please Login to See your cart');
+	
 }

@@ -1,0 +1,45 @@
+<%include head.ejs%>
+<body >
+	<link rel='stylesheet' href='/css/detail_item.css' type='text/css'  />
+	<%include nav.ejs%>
+	
+	
+		<div class="container-fluid" id="content">
+			<div class="row">
+				
+				<div class="col-md-4 col-md-offset-1 ">
+					<img src="/image/item.jpg"></img>
+				</div>
+			
+				<div class="col-md-5">
+					
+						<h3 id="itemName"><%=data.itemInfo.name%></h3>
+					<p>	<%=data.itemInfo.price%>
+						<del><%=data.itemInfo.oldPrice%></del>
+						id:<span id="idItem"><%=data.itemInfo.id%></span>
+					</p>
+					<p>
+					Số lượng:   <input id="number" type="number" name="quantity" min="1" max="5">
+					</p>
+					<p>
+						Có sẵn: <%=data.itemInfo.quatity%>
+					</p>
+					<button id="addToCart" onlick="">Thêm vào giỏ hàng</button>
+					<button onlick="">Mua ngay</button>
+				</div>
+				
+				<div class="col-md-2">
+				xxx
+				</div>
+
+			</div>
+		</div>
+		
+
+		
+
+			
+
+	<%include foot.ejs%>
+</body>
+</html>

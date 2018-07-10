@@ -1,0 +1,29 @@
+<%include head.ejs%>
+<body >
+	<%include nav.ejs%>
+	
+	
+		<div class="container" style="padding: 100px;">
+		<h1>This is carrt with user id= <%=data.userId%></h1>
+		<p>
+				<% for(var i=0; i<data.arrayItem.length; i++){ %>
+					<script> 
+					var html='';
+					html+='<%= data.arrayItem[0].itemName %>';
+					html+='<br>';
+					html+='Số lượng'+'<%=data.arrayItem[0].quantity%>';
+					html+='<button>Xóa</button>';
+					html+='<br>';
+
+					document.write(html);
+					</script>
+				<%}%>
+		</p>
+		</div>
+		
+
+			
+
+	<%include foot.ejs%>
+</body >
+</html>

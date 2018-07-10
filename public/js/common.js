@@ -5,20 +5,14 @@ $(function(){
 	 //set ava title
 	 if($('#username').html()=='')
 	 {
-	 	$('#username').html('Login');
-	 	
-	 
+	 	$('#username').html('Login'); 
 	 	$('.caret').css('display','none');
-
 	}
 	 else {
 	 	$("a[href='#modal-login']").parent().addClass('dropdown');
 	 	$("a[href='#modal-login']").attr('data-toggle', 'dropdown');
 	 	$("a[href='#modal-login']").addClass('dropdown-toggle');
-	 
 	 	$("a[href='#modal-login']").attr('href','#');
-
-
 	}
 
 
@@ -39,38 +33,28 @@ $(function(){
 	 	
 	 	$('#modal-login').modal('hide');
 	 	$('#modal-signup').modal('show');
-
 	 });
 	 
-	 
-
-
-
 	// login submit
 	 $('#login-nav').submit(function (e) { 	 	
 	 	var data={email:$('#email').val(),
 	 	pass:$('#pass').val()
 	 }; 	
 	 	e.preventDefault();
-
 	 	$.ajax({
 	 		data:data,
 	 		method:'post',
 	 		url: '/',						
-	 		success: function(data) {
-	 			 
+	 		success: function(data) {		 
 	 			if(data=='Email or password is not correct.')
 	 				$('#messLogin').html(data); //alert
 	 			else
 	 			{	//redict home  
 	 				window.location.href =data;
-	  
 	 			}
 	 		}
 	 	});
 	 });
-
-	
 
 	 //sign up submit
 	 $('#signUp-form').submit(function (e) { 
@@ -78,8 +62,7 @@ $(function(){
 	 		var rpw=$("#signUp-form .form-group input[name=reppass]").val();
 	 	if(pw!=rpw)
 	 	{	 $('#messPass').html('Two password not match, please try again.');
-	 		return false;
-	 		
+	 		return false;		
 	 	}
 
 	 	var data={
@@ -92,7 +75,6 @@ $(function(){
 	 	}; 
 	 	
 		 	e.preventDefault();
-
 		 	$.ajax({
 		 		data:data,
 		 		method:'post',
@@ -104,12 +86,10 @@ $(function(){
 			 				if(data=='This username was used')
 			 				$('#messUsername').html(data); //alert
 		 			else
-		 				window.location.href=data; 
-		 			
+		 				window.location.href=data;  			
 		 			}
 		 		} 
-			 }); 
-		 
+			 });  
 	 });
 				
 			
@@ -118,12 +98,22 @@ $(function(){
 	 $('nav').attr('data-wow-duration','0.8s');
 	 
 	 // add animation nav header
+	 //not at home page 
+	 if($('#carousel-id').height()-100<0)
+	 {
+	 		$('#nav-form').addClass('scale');  
+	 		$('.nav.navbar-nav').addClass('scale');  
+	 		$('nav').addClass('scale');    
+	 		$('.navbar-brand img').addClass('scale'); 
+	 }
+	 //at home page
 	 $(window).scroll(function(){
 
 	 	$('nav').removeClass('bounceInDown');
 
 	 	var top=$(window).scrollTop();
 	 	var position=$('#carousel-id').height()-100;
+
 	 	if(top>position)
 	 	{	
 	 		$('#nav-form').addClass('scale');  
@@ -140,14 +130,6 @@ $(function(){
 	 	}
 	 });
 	
-
-   	
-    
-	
-	
-
-
-
 });
 
 

@@ -1,19 +1,16 @@
-.container-fluit.trade
+
+
+
+.container-fluid.trade
 {
-	
 	border-top: 2px solid orange;
 	padding: 100px 0px;
-
 }
 .itemProduct
 {
-	
-	float:left;
-	
+	float:left;	
 	margin-left: 5px;
 	border: 2px solid red;
-
-	
 }
 .itemProduct:hover
 {

@@ -9,7 +9,11 @@ $(function(){
 	$('#addToCart').click(function(event) {
 		var toCart={quantity:$('#number').val(),
 			itemId:$('#idItem').html(),
-			itemName:$('#itemName').html()
+			itemName:$('#itemName').html(),
+			price:$('#price').html(),
+			oldPrice:$('#oldPrice').html(),
+			imgSrc: $('#imgSrc').attr('src'),
+
 
 		}
 		$.ajax({
@@ -40,7 +44,7 @@ $(function(){
 	$('.delFromCart').click(function(event) {
 		var delFromCart={idInCart:$(this).attr('data-idIncart') //in table inCart then id is unique
 		}
-		var obj=$(this);
+		var obj=$(this).parents('.row');
 		$.ajax({
 			url: '/delFromCart',
 			type: 'POST',

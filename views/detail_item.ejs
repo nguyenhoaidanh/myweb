@@ -1,36 +1,50 @@
 <%include head.ejs%>
 <body>
-	<link rel='stylesheet' href='/css/detail_item.css' type='text/css'  />
+	<link rel='stylesheet' href='/css/detail_item.css' type='text/css' />
 	<%include nav.ejs%>
 	
 	
 		<div class="container-fluid" id="content">
 			<div class="row">
 				
-				<div class="col-md-4 col-md-offset-1 ">
-					<img src="/image/item.jpg"></img>
+				<div class="col-md-4 col-md-offset-1" id="img">
+					<img id="imgSrc" src="<%=data.itemInfo.imgSrc%>"</img>
 				</div>
 			
-				<div class="col-md-5">
+				<div class="col-md-4">
 					
-						<h3 id="itemName"><%=data.itemInfo.name%></h3>
-					<p>	<%=data.itemInfo.price%>
-						<del><%=data.itemInfo.oldPrice%></del>
-						id:<span id="idItem"><%=data.itemInfo.id%></span>
+					<h3 id="itemName"><%=data.itemInfo.name%></h3>
+					<p ><span class="glyphicon glyphicon-usd"></span><span id="price">	<%=data.itemInfo.price%></span></p>
+					<p >Giá cũ: <del id="oldPrice"><%=data.itemInfo.oldPrice%></del></p>
+					<p>Mã sản phẩm: <span id="idItem"><%=data.itemInfo.id%></span></p>
+					<p>
+					<p>Số lượng:   <input id="number" type="number" name="quantity" min="1" value="1" max="5"><p>
 					</p>
 					<p>
-					Số lượng:   <input id="number" type="number" name="quantity" min="1" value="1" max="5">
-					</p>
-					<p>
-						Có sẵn: <%=data.itemInfo.quantity%>
+						Số lượng sẵn có: <%=data.itemInfo.quantity%>
 					</p>
 					<button id="addToCart" class="btn btn-info" onlick="">Thêm vào giỏ hàng</button>
 					<button class="btn btn-warning" onClick="alert('chưa làm');">Mua ngay</button>
 				</div>
 				
-				<div class="col-md-2">
-				Miễn phí giao hàng<br><br>
-				Bảo hành 12 tháng
+				<div class="col-md-3 id="right">
+				<p> <br><br>
+					<a href="#">
+			          <span class="glyphicon glyphicon-gift"></span>
+			        </a>Miễn phí giao hàng
+		        </p>
+				
+				<p>
+					<a href="#">
+			          <span class="glyphicon glyphicon-calendar"></span>
+			        </a>Bảo hành 12 tháng
+		        </p>
+
+		        <p>
+			        <a href="#">
+			          <span class="glyphicon glyphicon-ok-sign"></span>
+			        </a> 7 ngày đổi trả dễ dàng.
+			     </p>
 				</div>
 
 			</div>

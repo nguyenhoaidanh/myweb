@@ -18,8 +18,8 @@
 		 			<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="/image/3.jpg">
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s">
-		 					<h1>Example headline.</h1>
-		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+		 					<h1>This web practice myself</h1>
+		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Not click</a></p>
 		 				</div>
 		 			</div>
 		 		</div>
@@ -27,8 +27,8 @@
 		 			<img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="/image/1.jpg">
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s" >
-		 					<h1>Another example headline.</h1>
-		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+		 					<h1>Jquery</h1>
+		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Basic</a></p>
 		 				</div>
 		 			</div>
 		 		</div>
@@ -36,8 +36,8 @@
 		 			<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="/image/2.jpg">
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s">
-		 					<h1>One more for good measure.</h1>
-		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+		 					<h1>Ajax</h1>
+		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Not click</a></p>
 		 				</div>
 		 			</div>
 		 		</div>
@@ -45,8 +45,8 @@
 		 			<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Fourth slide" src="/image/2.jpg">
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s">
-		 					<h1>One more for good measure.</h1>
-		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+		 					<h1>Bootstrap</h1>
+		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Practice</a></p>
 		 				</div>
 		 			</div>
 		 		</div>
@@ -54,8 +54,8 @@
 		 			<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Fourth slide" src="/image/2.jpg">
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s">
-		 					<h1>One more for good measure.</h1>
-		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+		 					<h1>Nguyễn Hoài Danh</h1>
+		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">7/2018</a></p>
 		 				</div>
 		 			</div>
 		 		</div>
@@ -63,8 +63,8 @@
 		 			<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Fourth slide" src="/image/2.jpg">
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s">
-		 					<h1>One more for good measure.</h1>
-		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+		 					<h1>Summer 2018</h1>
+		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Nodejs web</a></p>
 		 				</div>
 		 			</div>
 		 		</div>
@@ -76,14 +76,14 @@
 		
 		<div class="container-fluid trade" id="dientu">
 			<h1>Điện tử</h1>
-			<div class="container" id="product">	
+			<div class="container-fluid" id="product">	
 				<div class="row">
-				<% for(var i=0; i<4; i++) { %>
+				<% for(var i=0; i<6; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="md-col-3">';
+								html+='<div class="col-md-2 itemProduct">';
 								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
-								html+=		'<div class="itemProduct wow ">';
+								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
 								html+=			'<p>';
 								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
@@ -97,6 +97,7 @@
 							
 							</script>	
 				<% } %>
+
 				</div> <!-- end  row -->
 			</div> <!-- end  container -->
 		</div>
@@ -108,9 +109,9 @@
 				<% for(var i=8; i<12; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="md-col-3">';
+								html+='<div class="col-md-2 itemProduct">';
 								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
-								html+=		'<div class="itemProduct wow ">';
+								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
 								html+=			'<p>';
 								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
@@ -135,9 +136,9 @@
 				<% for(var i=4; i<8; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="md-col-3">';
+								html+='<div class="col-md-2 itemProduct">';
 								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
-								html+=		'<div class="itemProduct wow ">';
+								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
 								html+=			'<p>';
 								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
@@ -151,6 +152,7 @@
 							
 							</script>	
 				<% } %>
+
 				</div> <!-- end  row -->
 			</div> <!-- end  container -->
 		</div>
@@ -162,9 +164,9 @@
 				<% for(var i=12; i<16; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="md-col-3">';
+								html+='<div class="col-md-2 itemProduct">';
 								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
-								html+=		'<div class="itemProduct wow ">';
+								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
 								html+=			'<p>';
 								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';

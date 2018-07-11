@@ -39,14 +39,18 @@ exports.toCart=function(req,res){
 	var itemName=req.body.itemName;
 	var userId=req.session.userId;
 	var quantity=req.body.quantity;
+	var price=req.body.price;
+	var oldPrice=req.body.oldPrice;
+	var imgSrc=req.body.imgSrc;
 	
 	if(username==null||quantity==''||itemName==''){
 		res.send('a field is empty');
+		console.log(quantity);
 		
 	}
 		else
 		{	
-			var sql=SqlString.format("insert into inCart(userId,itemId,itemName,quantity) values(?,?,?,?)",[userId,itemId,itemName,quantity]);
+			var sql=SqlString.format("insert into inCart(userId,itemId,itemName,price,oldPrice,quantity,imgSrc) values(?,?,?,?,?,?,?)",[userId,itemId,itemName,price,oldPrice,quantity,imgSrc]);
 			db.query(sql, function (err, results) {
 				if (err) throw err;
 				else { 

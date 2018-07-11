@@ -1,26 +1,43 @@
 <%include head.ejs%>
 <body >
 	<%include nav.ejs%>
+		<link rel='stylesheet' href='/css/cart.css' type='text/css' />
 	
-	
-		<div class="container" style="padding: 100px;">
-		<h1>This is carrt with user id= <%=data.userId%></h1>
-		<p>
-				<% for(var i=0; i<data.arrayItem.length; i++){ %>
-					<script> 
-					var html='';
-					html+='<h3 ><%= data.arrayItem[i].id %></h3>';
-					html+='<br>';
-					html+='<%= data.arrayItem[i].itemName %>';
-					html+='<br>';
-					html+='Số lượng'+'<%=data.arrayItem[i].quantity%>';
-					html+='<button data-idIncart="<%= data.arrayItem[i].id %>"class="delFromCart">Xóa</button>';
-					html+='<br>';
+		<div class="container" id="content">
+			<h2>Giỏ hàng của bạn (<%=data.arrayItem.length%> sản phẩm)</h2>
+			
+				
+					<% for(var i=0; i<data.arrayItem.length; i++){ %>
+						<script> 
+						var html='<div class="row">';
+						html+='<h3 style="display:none;"><%= data.arrayItem[i].id %></h3>';
+						html+='<div class="col-md-1">';
+						html+='<img id="imgSrc" src="<%= data.arrayItem[i].imgSrc %>"></img>';
+						html+='</div>';	//end col
+						html+='<div class="col-md-5 col-md-offset-1 item">';
+						html+='<h3 id="itemName" ><%= data.arrayItem[i].itemName %></h3>';
+						
+						html+='<p ><span class="glyphicon glyphicon-usd"></span><span id="price"><%=data.arrayItem[i].price%></span>';
+						html+='&nbsp;&nbsp; <del id="oldPrice"><%=data.arrayItem[i].oldPrice%></del></p>';
+						html+='Số lượng : '+'<%=data.arrayItem[i].quantity%>';
+						html+='<p class="text-right"><button data-idIncart="<%= data.arrayItem[i].id %>"class="delFromCart btn btn-warning">Xóa</button>';
+						html+='<button class=" btn btn-success">Mua ngay</button></p>'
+						html+='</div>'; //end col
+						html+='</div>'; //end row
+						html+='<br>';
 
-					document.write(html);
-					</script>
-				<%}%>
-		</p>
+					
+					
+					
+					
+		
+
+
+
+						document.write(html);
+						</script>
+					<%}%>
+			
 		</div>
 		
 

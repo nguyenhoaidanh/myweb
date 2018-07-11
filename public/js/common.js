@@ -7,12 +7,14 @@ $(function(){
 	 {
 	 	$('#username').html('Login'); 
 	 	$('.caret').css('display','none');
+	 	$('#cart').attr('href', '#modal-login');
 	}
 	 else {
 	 	$("a[href='#modal-login']").parent().addClass('dropdown');
 	 	$("a[href='#modal-login']").attr('data-toggle', 'dropdown');
 	 	$("a[href='#modal-login']").addClass('dropdown-toggle');
 	 	$("a[href='#modal-login']").attr('href','#');
+	 	$('#cart').attr('href', '/cart');
 	}
 
 

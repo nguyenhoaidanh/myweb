@@ -33,12 +33,13 @@ ul.nav li a{
     display: block;
     margin-top: 0;
  }
-.dropdown-menu
+.dropdown-menu#account-menu 
 {	margin-top: -20px;
 	margin-left: 60px;
 	font-weight: bold;
 	
 }
+
  #account-menu a
  {
  	color: red;
@@ -74,6 +75,10 @@ ul.nav li a{
 {
 	margin-top:-6px;
 }
+nav .container
+{
+	margin-left: 200px;
+}
 .nav.navbar-nav,.navbar-brand img, nav
 {
 	transition: 0.4s;
@@ -91,6 +96,10 @@ ul.nav li a{
  {
  	margin-top:-10px;
  }
+ #danhmuc.scale
+ {
+ 	margin-top:9px;
+ }
 nav.scale	
 {
 	height: 10px;
@@ -98,8 +107,17 @@ nav.scale
 }
 #nav-form
 {
-		padding-top:3%;transition:0.2s;
+		padding-top:3%;
+		transition:0.2s;
 }
+#danhmuc
+{	
+	position: fixed;
+
+	margin-top:18px;
+	transition:0.2s;
+}
+
 #search
 {	
 	height:30%;

@@ -1,10 +1,24 @@
 	<div class="container-fluid">	
 		<nav class="navbar navbar-fixed-top  wow">
-		  <div class="container">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="/"><img src="/image/logo.png" width="80px"></img></a>
-		    </div>
-		    
+
+
+			<div class="dropdown" id="danhmuc">
+				 <a class="dropdown-toggle btn btn-info" data-toggle="dropdown" href="#">&nbsp;
+				 	<span class="glyphicon glyphicon-align-justify">&nbsp;</span>Danh mục sản phẩm
+				 </a>
+	               <div class="dropdown-menu" >
+	                  <ul >
+	                     <li class="active"><a href="#mypham">Mỹ phẩm</a></li>
+	                     <li><a href="#dientu">Điện tử</a></li>
+	                     <li><a href="#quanao">Quần áo</a></li>
+	                     <li><a href="#sachvo">Sách vở</a></li>
+	                  </ul>
+	               </div>
+			</div>
+		 
+		 <div class="container">
+            <a class="navbar-brand" href="/"><img src="/image/logo.png" width="80px"></img></a>
+     
 		    <form class="navbar-form navbar-left" action="/search" >
 		      <div class="input-group" id="nav-form">
 		        <input type="text" class="form-control" placeholder="Search ..." name="search" id="search">
@@ -19,7 +33,7 @@
 		    <ul class="nav navbar-nav">
 		      <li class="active"><a href="/"><img src="/image/home.png" width="38px"></img>&nbsp;Home</a></li>
 		      <li><a href="/cart"><img src="/image/cart.png" width="40px"></img>&nbsp;Cart
-		    <span class="label label-warning" id="cartLable"><%=data.numberInCart%></span></a></li>
+		   			 <span class="label label-warning" id="cartLable"><%=data.numberInCart%></span></a></li>
 		       <li>
 			      <a href='#modal-login' data-toggle="modal">
 				      	<img src="/image/ava.png" width="40px"></img> 
@@ -28,23 +42,14 @@
 
 				       <ul class="dropdown-menu" id="account-menu">
 				          <li><a href="/profile">Edit profile</a></li>
-				          <li><a href="#">More</a></li>
-				         
+				          <li><a href="#">More</a></li>		         
 				          <li><a href="/logout">Logout</a></li>
 				        </ul>
-			       </a>
-					    
-				        
-				      	
-				     
-		      </li>
-		      	
-				
-		      
-		     			
+			       </a>    
+		      </li>    			
 		    </ul>
-		    		
-		  </div>
+		 </div>   		
+		 
 		</nav>
 	</div>
 

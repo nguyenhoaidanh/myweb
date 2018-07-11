@@ -73,6 +73,22 @@ values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Mỹ phẩm','/image/
 insert into item(name, price,oldPrice, quantity,type,imgSrc) 
 values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Mỹ phẩm','/image/item.jpg');
 
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Quần áo','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Quần áo','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Quần áo','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Quần áo','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Sách vở','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Sách vở','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Sách vở','/image/item.jpg');
+insert into item(name, price,oldPrice, quantity,type,imgSrc) 
+values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Sách vở','/image/item.jpg');
 
 
 insert into users(username,phone,email,pass,dateDK,gender,bDate,imgSrc) 

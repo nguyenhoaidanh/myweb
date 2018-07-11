@@ -101,7 +101,8 @@ $(function(){
 	 //not at home page 
 	 if($('#carousel-id').height()-100<0)
 	 {
-	 		$('#nav-form').addClass('scale');  
+	 		$('#nav-form').addClass('scale');
+	 		$('#danhmuc').addClass('scale');  
 	 		$('.nav.navbar-nav').addClass('scale');  
 	 		$('nav').addClass('scale');    
 	 		$('.navbar-brand img').addClass('scale'); 
@@ -119,14 +120,16 @@ $(function(){
 	 		$('#nav-form').addClass('scale');  
 	 		$('.nav.navbar-nav').addClass('scale');  
 	 		$('nav').addClass('scale');    
-	 		$('.navbar-brand img').addClass('scale');                                                                             		
+	 		$('.navbar-brand img').addClass('scale');   
+	 		$('#danhmuc').addClass('scale');                                                                           		
 	 	}
 	 	else{	
 
 	 		$('#nav-form').removeClass('scale');  
 	 		$('.nav.navbar-nav').removeClass('scale');
 	 		$('nav').removeClass('scale');
-	 		$('.navbar-brand img').removeClass('scale');         
+	 		$('.navbar-brand img').removeClass('scale');  
+	 		$('#danhmuc').removeClass('scale');        
 	 	}
 	 });
 	

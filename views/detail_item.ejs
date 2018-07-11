@@ -1,5 +1,5 @@
 <%include head.ejs%>
-<body >
+<body>
 	<link rel='stylesheet' href='/css/detail_item.css' type='text/css'  />
 	<%include nav.ejs%>
 	
@@ -19,17 +19,18 @@
 						id:<span id="idItem"><%=data.itemInfo.id%></span>
 					</p>
 					<p>
-					Số lượng:   <input id="number" type="number" name="quantity" min="1" max="5">
+					Số lượng:   <input id="number" type="number" name="quantity" min="1" value="1" max="5">
 					</p>
 					<p>
-						Có sẵn: <%=data.itemInfo.quatity%>
+						Có sẵn: <%=data.itemInfo.quantity%>
 					</p>
-					<button id="addToCart" onlick="">Thêm vào giỏ hàng</button>
-					<button onlick="">Mua ngay</button>
+					<button id="addToCart" class="btn btn-info" onlick="">Thêm vào giỏ hàng</button>
+					<button class="btn btn-warning" onClick="alert('chưa làm');">Mua ngay</button>
 				</div>
 				
 				<div class="col-md-2">
-				xxx
+				Miễn phí giao hàng<br><br>
+				Bảo hành 12 tháng
 				</div>
 
 			</div>

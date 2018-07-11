@@ -9,10 +9,12 @@
 				<% for(var i=0; i<data.arrayItem.length; i++){ %>
 					<script> 
 					var html='';
-					html+='<%= data.arrayItem[0].itemName %>';
+					html+='<h3 ><%= data.arrayItem[i].id %></h3>';
 					html+='<br>';
-					html+='Số lượng'+'<%=data.arrayItem[0].quantity%>';
-					html+='<button>Xóa</button>';
+					html+='<%= data.arrayItem[i].itemName %>';
+					html+='<br>';
+					html+='Số lượng'+'<%=data.arrayItem[i].quantity%>';
+					html+='<button data-idIncart="<%= data.arrayItem[i].id %>"class="delFromCart">Xóa</button>';
 					html+='<br>';
 
 					document.write(html);

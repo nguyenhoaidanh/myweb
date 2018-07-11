@@ -51,8 +51,42 @@ exports.toCart=function(req,res){
 				if (err) throw err;
 				else { 
 					
-							data.itemInfo=results[0];req.session.numberInCart++;
+						
+							
+							req.session.numberInCart++;
 							res.send('Thêm vô giỏ hàng thành công.')
+				}
+
+					
+			});	
+			
+		}
+		
+}
+exports.delFromCart=function(req,res){
+	var data={username:req.session.username,
+		userId:req.session.userId,
+		numberInCart:req.session.numberInCart
+	};
+	
+	
+	var idInCart=req.body.idInCart;
+	
+	
+	if(data.username==null||idInCart==''){
+		res.send('a field is empty');
+		
+	}
+		else
+		{	
+			var sql=SqlString.format("delete from inCart where id=?;",[idInCart]);
+			db.query(sql, function (err, results) {
+				if (err) throw err;
+				else { 
+					
+							
+							req.session.numberInCart--;
+							res.send('Xóa khỏi giỏ hàng thành công.')
 				}
 
 					

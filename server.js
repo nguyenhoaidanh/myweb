@@ -45,7 +45,7 @@ app.get('/cart',user.cart);
 app.get('/item/:itemId',db.detail_item);
 app.get('/search',db.search);
 app.post('/toCart',db.toCart);
-
+app.post('/delFromCart',db.delFromCart);
 app.set('port', process.env.PORT || 8080);
 app.listen(process.env.PORT || 8080);
 console.log("Create server done");

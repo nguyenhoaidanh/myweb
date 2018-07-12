@@ -41,6 +41,8 @@ app.post('/',user.login);
 app.post('/profile',user.signUp);
 app.get('/logout',user.logout);
 app.get('/profile',user.profile);
+app.get('/editProfile',user.editProfile);
+app.post('/editProfile',user.editProfile);
 app.get('/cart',user.cart);
 app.get('/item/:itemId',db.detail_item);
 app.get('/search',db.search);

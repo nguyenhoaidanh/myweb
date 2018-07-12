@@ -4,7 +4,7 @@
 		<link rel='stylesheet' href='/css/cart.css' type='text/css' />
 	
 		<div class="container" id="content">
-			<h2>Giỏ hàng của bạn (<%=data.arrayItem.length%> sản phẩm)</h2>
+			<h2>Giỏ hàng của bạn (<span id="sum"><%=data.arrayItem.length%></span> sản phẩm)</h2>
 			
 				
 					<% for(var i=0; i<data.arrayItem.length; i++){ %>
@@ -24,7 +24,7 @@
 						html+='<button class=" btn btn-success">Mua ngay</button></p>'
 						html+='</div>'; //end col
 						html+='</div>'; //end row
-						html+='<br>';
+						
 
 					
 					

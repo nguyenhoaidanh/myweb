@@ -55,9 +55,11 @@ $(function(){
 			if(data=='Xóa khỏi giỏ hàng thành công.')
 			{
 				var ret= $('#cartLable').html();
-				$('#cartLable').html(parseInt(ret)-1);
+				var sum=parseInt(ret)-1;		//total item in cart
+				$('#cartLable').html(sum);
+				$('#sum').html(sum);
 				//hidden item delete in cart
-				obj.css('display','none');
+				obj.remove();
 				
 			}
 

@@ -131,7 +131,68 @@ exports.profile=function(req,res){
 		numberInCart:req.session.numberInCart
 		
 	};
-	res.render('profile.ejs',{data:data});
+	sql = SqlString.format('select * from users  where id=?', [req.session.userId]);
+	db.query(sql, function (err, results) {
+		if (err) throw err;
+		else { 
+			console.log(results);
+			
+			
+
+			data.userInfo=results[0];
+			res.render('profile.ejs',{data:data});
+
+		}
+	});
+
+
+
+
+
+
+
+}
+exports.editProfile=function(req,res){
+	var data={username:req.session.username,
+		userId:req.session.userId,
+		numberInCart:req.session.numberInCart
+		
+	};
+	 var message = "";
+    if (req.method == "POST") {
+        var post = req.body;
+ 		console.log(2222222);
+ 		console.log(post);
+ 		console.log(data.userId);
+        var username = req.session.username;
+        var bDate = post.bDate;
+        var phone = post.phone;
+  		console.log(bDate);
+        if (bDate.length == 0) bDate = null;
+        var sql = SqlString.format('CALL updateUserInfo(?,?,?,?)', [data.userId, username,bDate, phone]);
+        db.query(sql, (err, results) => {
+            if (err) console.log(JSON.stringify(err, undefined, 2));
+            else
+            {
+            	res.redirect('/profile');
+    		}
+        });
+    } else { //GET method
+        var sql = SqlString.format('CALL getUserInfoById(?)', [data.userId]);
+        db.query(sql, function (err, results) {
+        	console.log(data.userId)
+        	data.userInfo=results[0][0];
+        	console.log(results[0][0]);
+        	console.log(1111111);
+        	console.log(data.userInfo.username);
+            res.render('edit_profile.ejs', {data:data  });
+        });
+    }
+
+
+
+
+	
 }
 exports.logout=function(req,res){
 	req.session.destroy(function (err) {

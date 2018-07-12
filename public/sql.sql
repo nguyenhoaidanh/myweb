@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS cart(
 );
 
 
+
 insert into item(name, price,oldPrice, quantity,type,imgSrc) 
 values ('USB 16GB siêu tốt','100000đ','2000000đ',100,'Điện tử','/image/item.jpg');
 insert into item(name, price,oldPrice, quantity,type,imgSrc) 
@@ -138,9 +139,32 @@ BEGIN
 END;//
 
 
+DROP PROCEDURE IF EXISTS `updateUserInfo`//
+
+CREATE PROCEDURE `updateUserInfo`(
+    IN  _id          INT,
+    IN  _username  VARCHAR(100),
+    IN  _Bdate       DATE,
+    IN  _phone       VARCHAR(15))
+BEGIN
+    UPDATE users
+    SET     username = _username,
+     
+        Bdate      = _Bdate,
+        phone      = _phone
+      
+  WHERE  id = _id;
+END;//
 
 
+DROP PROCEDURE IF EXISTS `getUserInfoById`//
 
+CREATE PROCEDURE `getUserInfoById`(
+    IN  _id  INT(11))
+BEGIN
+    SELECT id,username,phone,dateDK,bDate,imgSrc,email,gender  
+    FROM users WHERE id = _id;
+END;//
 
 
 

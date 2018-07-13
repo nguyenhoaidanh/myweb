@@ -61,6 +61,7 @@ exports.signUp=function(req,res){
 		var username=req.body.username;
 		var email=req.body.email;	
 		var gender=req.body.gender;
+
 		var bDate=req.body.bDate;
 		console.log(bDate);
 		var phone='',imgSrc='';
@@ -158,18 +159,38 @@ exports.editProfile=function(req,res){
 		numberInCart:req.session.numberInCart
 		
 	};
+
+		
 	 var message = "";
     if (req.method == "POST") {
         var post = req.body;
- 		console.log(2222222);
+        console.log('yyyyyyyy');
+ 		
  		console.log(post);
- 		console.log(data.userId);
+ 		 console.log(req.files.avatar); // the uploaded file object
+ 		
+ 		 if (!req.files)
+ 		 	console.log('No files were uploaded.');	
+ 		 else {	
+ 		 	var fileUpload=req.files.avatar;
+ 		 	console.log(__dirname);
+ 		 	console.log(__filename);
+ 		 	fileUpload.mv( './fileUpload/'+fileUpload.name, function(err) {
+ 		 		if (err)
+ 		 			console.log(err);
+ 		 		else  console.log('File uploaded!');
+ 		 	});
+ 		 }
+  
+ 
+    
         var username = req.session.username;
         var bDate = post.bDate;
         var phone = post.phone;
-  		console.log(bDate);
+        var imgSrc='/fileUpload/'+req.files.avatar.name;
+       
         if (bDate.length == 0) bDate = null;
-        var sql = SqlString.format('CALL updateUserInfo(?,?,?,?)', [data.userId, username,bDate, phone]);
+        var sql = SqlString.format('CALL updateUserInfo(?,?,?,?,?)', [data.userId, username,bDate, phone,imgSrc]);
         db.query(sql, (err, results) => {
             if (err) console.log(JSON.stringify(err, undefined, 2));
             else

@@ -31,6 +31,26 @@ $(function(){
 	 	$('#modal-login').modal('show');
 
 	 });
+
+	  function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#imgSrc').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#avatar").change(function(){
+			readURL(this);
+		});		
+
+
+
+
 	 $("#toModalSignUp").click(function(event) {
 	 	
 	 	$('#modal-login').modal('hide');

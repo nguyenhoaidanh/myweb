@@ -145,14 +145,15 @@ CREATE PROCEDURE `updateUserInfo`(
     IN  _id          INT,
     IN  _username  VARCHAR(100),
     IN  _Bdate       DATE,
-    IN  _phone       VARCHAR(15))
+    IN  _phone       VARCHAR(15),
+    IN  _imgSrc      VARCHAR(100))
 BEGIN
     UPDATE users
     SET     username = _username,
      
         Bdate      = _Bdate,
-        phone      = _phone
-      
+        phone      = _phone,
+        imgSrc      = _imgSrc
   WHERE  id = _id;
 END;//
 

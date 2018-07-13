@@ -7,10 +7,22 @@ var db = require('./route/db');
 var index= require('./route/index');
 var SqlString = require('sqlstring');
 var session = require('express-session');
+
+
+var formidable = require('formidable');
+var fs = require('fs');
+const fileUpload = require('express-fileupload');
+// default options
+app.use(fileUpload());
+
+
+
+
+
 app.set('views', __dirname + '/views');
 app.set('view engine','ejs');
 app.use(express.static('public'));
-
+app.use('/fileUpload',express.static('fileUpload'));
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',

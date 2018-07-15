@@ -1,0 +1,18 @@
+.container#content
+{
+	padding :100px;
+	min-height:90vh;
+}
+
+.container#content .itemProduct
+{
+	height: 250px;
+	width: 200px;
+	margin: 20px 0px 0px 21px;
+	background-color: white;
+}
+
+.container#content .itemProduct:hover
+{
+	border: 3px solid green;
+}

@@ -2,6 +2,111 @@ $(function(){
 	 //iit wow.js
 	 new WOW().init();
 	
+
+	 $('#sendOTP').click(function(event) {	
+	 	var data=$('#emailF').val(); 
+	 	if(data=='')
+	 	{
+	 		$('#messEmailF').html('Vui lòng điền email').fadeIn();
+	 		setTimeout(function()
+	 		{
+	 			$('#messEmailF').fadeOut();
+	 		},7000);
+	 	}
+	 	else
+	 	{	
+	 		$.post('/changePass', {data: data}, function (data) {
+	 			if(data=='')
+	 				$('#messOTP').html('Một mã code đã được gửi về email bạn. Nếu không nhận được mã vui lòng kiểm tra Email đã đúng chưa. Hoặc bấm gửi mã để gửi lại. Thanks.').fadeIn();
+	 			else if(data=='Mã đã được gửi lại');
+	 			else $('#messOTP').html(data).fadeIn();
+	 				//$('#messEmailF').html(data).fadeIn();
+	 		});
+	 		setTimeout(function()
+	 		{
+	 			$('#messOTP').fadeOut();
+	 		},7000);	
+	 	}	
+	 });
+
+	 $('#changePass').submit(function(event) {
+	 	var data={
+	 		oldPass:$('#oldPass').val(),
+	 		newPass:$('#newPass').val(),
+	 		repNewPass:$('#repNewPass').val()
+	 	};
+	 	if(data.newPass!=data.repNewPass)
+	 	{
+	 		$('#messNewPass').html("Two password not match");
+	 		return false;
+	 	}
+
+	 	event.preventDefault();
+	 	$.ajax({
+	 		data:data,
+	 		method:'post',
+	 		url: '/changePass',						
+	 		success: function(data) {		 
+	 			if(data=='Not login')
+	 				$('#messStatus').html('Please login first'); //alert
+	 			else
+	 			{	
+	 				
+				 					$('#messStatus').html(data); //alert
+				 			
+	 			}
+	 		}
+	 	});
+	 	
+
+	 });
+
+	 $('#forgotPass').submit(function(event) {
+
+	 	var data={
+	 		emailF:$('#emailF').val(),
+	 		OTP:$('#OTP').val(),
+	 		newPassF:$('#newPassF').val(),
+	 		repNewPassF:$('#repNewPassF').val()
+	 	};
+	 	if(data.newPassF!=data.repNewPassF)
+	 	{
+	 		$('#messNewPassF').html("Two password not match");
+	 		return false;
+	 	}
+	 	event.preventDefault();
+	 	$.ajax({
+	 		data:data,
+	 		method:'post',
+	 		url: '/changePass',						
+	 		success: function(data){		 
+	 			
+	 			{	
+	 					$('#messStatusF').html(data); //alert
+	 			}
+	 		}
+	 	});
+
+	 });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	 //set ava title
 	 if($('#username').html()=='')
 	 {
@@ -16,6 +121,21 @@ $(function(){
 	 	$("a[href='#modal-login']").attr('href','#');
 	 	$('#cart').attr('href', '/cart');
 	}
+
+	//set ava
+	if($('img#ava').attr('src')=='')
+		$('img#ava').attr('src','/image/ava.png');
+
+	//control quick search
+	var url      = window.location.href;  
+	if(url[url.length-1]!="/") //not in home page
+	{	
+			$('div#quickSearch').find('a').each(function(index, el) {
+				var oldhref=$(this).attr('href');
+			$(this).attr('href', '/'+oldhref);
+		});
+	}
+
 
 
 	//add remove active nav item
@@ -58,7 +178,9 @@ $(function(){
 	 });
 	 
 	// login submit
-	 $('#login-nav').submit(function (e) { 	 	
+	 $('#login-nav').submit(function (e) { 	 
+
+	 $('#messLogin').html('');	
 	 	var data={email:$('#email').val(),
 	 	pass:$('#pass').val()
 	 }; 	
@@ -80,6 +202,11 @@ $(function(){
 
 	 //sign up submit
 	 $('#signUp-form').submit(function (e) { 
+
+	 	$('#messUsername,#messPass,#messEmail').html('');
+
+
+
 	 		var pw=$("#signUp-form .form-group input[name=pass]").val();
 	 		var rpw=$("#signUp-form .form-group input[name=reppass]").val();
 	 	if(pw!=rpw)

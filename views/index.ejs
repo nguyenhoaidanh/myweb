@@ -78,17 +78,17 @@
 			<h1>Điện tử</h1>
 			<div class="container-fluid" id="product">	
 				<div class="row">
-				<% for(var i=0; i<6; i++) { %>
+				<% for(var i=0; i<data.dientu.length; i++) { %>
 							<script>
 							var	html='';
 								html+='<div class="col-md-2 itemProduct">';
-								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
+								html+=	'<a href="/item/<%=data.dientu[i].id%>">'
 								html+=		'<div class="wow">';
-								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
+								html+=			'<img src="<%=data.dientu[i].imgSrc%>"></img>';
 								html+=			'<p>';
-								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
-								html+=				'<span class="itemPrice"><strong><%=data.arrayItem[i].price%></strong></span>';
-								html+=				'<span class="oldPrice"><del><%=data.arrayItem[i].oldPrice%></del></span>';
+								html+=				'<span class="itemName "><%=data.dientu[i].name%></span><br>';
+								html+=				'<span class="itemPrice"><strong><%=data.dientu[i].price%></strong></span>';
+								html+=				'<span class="oldPrice"><del><%=data.dientu[i].oldPrice%></del></span>';
 								html+=			'</p>';
 								html+=		'</div>';
 								html+=	'</a>';
@@ -106,17 +106,17 @@
 			<h1>Mỹ phẩm</h1>
 			<div class="container-fluid" id="product">	
 				<div class="row">
-				<% for(var i=0; i<6; i++) { %>
+				<% for(var i=0; i<data.mypham.length; i++) { %>
 							<script>
 							var	html='';
 								html+='<div class="col-md-2 itemProduct">';
-								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
+								html+=	'<a href="/item/<%=data.mypham[i].id%>">'
 								html+=		'<div class="wow">';
-								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
+								html+=			'<img src="<%=data.mypham[i].imgSrc%>"></img>';
 								html+=			'<p>';
-								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
-								html+=				'<span class="itemPrice"><strong><%=data.arrayItem[i].price%></strong></span>';
-								html+=				'<span class="oldPrice"><del><%=data.arrayItem[i].oldPrice%></del></span>';
+								html+=				'<span class="itemName "><%=data.mypham[i].name%></span><br>';
+								html+=				'<span class="itemPrice"><strong><%=data.mypham[i].price%></strong></span>';
+								html+=				'<span class="oldPrice"><del><%=data.mypham[i].oldPrice%></del></span>';
 								html+=			'</p>';
 								html+=		'</div>';
 								html+=	'</a>';
@@ -134,17 +134,17 @@
 			<h1>Quần áo</h1>
 			<div class="container-fluid" id="product">	
 				<div class="row">
-				<% for(var i=0; i<6; i++) { %>
+				<% for(var i=0; i<data.quanao.length; i++) { %>
 							<script>
 							var	html='';
 								html+='<div class="col-md-2 itemProduct">';
-								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
+								html+=	'<a href="/item/<%=data.quanao[i].id%>">'
 								html+=		'<div class="wow">';
-								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
+								html+=			'<img src="<%=data.quanao[i].imgSrc%>"></img>';
 								html+=			'<p>';
-								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
-								html+=				'<span class="itemPrice"><strong><%=data.arrayItem[i].price%></strong></span>';
-								html+=				'<span class="oldPrice"><del><%=data.arrayItem[i].oldPrice%></del></span>';
+								html+=				'<span class="itemName "><%=data.quanao[i].name%></span><br>';
+								html+=				'<span class="itemPrice"><strong><%=data.quanao[i].price%></strong></span>';
+								html+=				'<span class="oldPrice"><del><%=data.quanao[i].oldPrice%></del></span>';
 								html+=			'</p>';
 								html+=		'</div>';
 								html+=	'</a>';
@@ -162,17 +162,17 @@
 			<h1>Sách vở</h1>
 			<div class="container-fluid" id="product">	
 				<div class="row">
-				<% for(var i=0; i<6; i++) { %>
+				<% for(var i=0; i<data.sachvo.length; i++) { %>
 							<script>
 							var	html='';
 								html+='<div class="col-md-2 itemProduct">';
-								html+=	'<a href="/item/<%=data.arrayItem[i].id%>">'
+								html+=	'<a href="/item/<%=data.sachvo[i].id%>">'
 								html+=		'<div class="wow">';
-								html+=			'<img src="<%=data.arrayItem[i].imgSrc%>"></img>';
+								html+=			'<img src="<%=data.sachvo[i].imgSrc%>"></img>';
 								html+=			'<p>';
-								html+=				'<span class="itemName "><%=data.arrayItem[i].name%></span><br>';
-								html+=				'<span class="itemPrice"><strong><%=data.arrayItem[i].price%></strong></span>';
-								html+=				'<span class="oldPrice"><del><%=data.arrayItem[i].oldPrice%></del></span>';
+								html+=				'<span class="itemName "><%=data.sachvo[i].name%></span><br>';
+								html+=				'<span class="itemPrice"><strong><%=data.sachvo[i].price%></strong></span>';
+								html+=				'<span class="oldPrice"><del><%=data.sachvo[i].oldPrice%></del></span>';
 								html+=			'</p>';
 								html+=		'</div>';
 								html+=	'</a>';

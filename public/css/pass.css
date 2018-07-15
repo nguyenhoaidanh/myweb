@@ -1,0 +1,19 @@
+input{
+	text-align: center;
+}
+#OTP
+{
+	width: 82%;
+}
+div#otpControl > input
+{
+	display:inline-block;
+}
+#sendOTP
+{
+	
+}
+#messNewPass,#messOldPass,#messStatus,#messOTP,#messNewPassF,#messStatusF,#messEmailF
+{
+	color: red;
+}

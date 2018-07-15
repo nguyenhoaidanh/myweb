@@ -17,6 +17,9 @@
     "formidable": "^1.2.1",
     "fs": "0.0.1-security",
     "mysql": "^2.15.0",
+    "nodemailer": "^4.6.7",
+    "password-hash": "^1.2.2",
+    "sha1": "^1.1.1",
     "sqlstring": "^2.3.1",
     "wow.js": "^1.2.2",
     "wowjs": "^1.1.3"

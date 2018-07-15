@@ -1,0 +1,92 @@
+<%include head.ejs%>
+<body>
+
+<%include nav.ejs%>
+	<link rel='stylesheet' href='/css/pass.css' type='text/css' />
+	<div class="container-fluid" style="padding:100px;min-height:90vh;">
+	   <div class="row">
+		  
+		   <div class="col-md-5 col-md-offset-1">   
+		      <form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="changePass">
+		          <h2 class="text-center">
+		            Change password
+		           </h2>
+		         
+		         <div class="form-group">
+		            <label class="sr-only" >Old password</label>
+		            <input type="password" class="form-control" placeholder="Old password" name="oldPass" id="oldPass" required>
+		            <span id="messOldPass"></span>
+		         </div>
+		        
+		         <div class="form-group">
+		            <label class="sr-only" >New password</label>
+		            <input type="password" class="form-control"  placeholder="New password" name="newPass" id="newPass" required>
+		         </div>
+
+		         <div class="form-group">
+		            <label class="sr-only" >Repeat new password</label>
+		            <input type="password" class="form-control"  placeholder="Repeat new password" name="repNewPass" id="repNewPass" required>
+		            <span id="messNewPass"></span>     
+		         </div>
+		       
+		         <div class="form-group">
+		            <button type="submit" id="changePassBtn" class="btn btn-primary btn-block">Change</button>
+		             <span id="messStatus"></span> 
+		         </div>     
+		      </form>
+		    </div>
+
+
+		    <div class="col-md-5 ">  
+		      <form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="forgotPass">
+		      
+		         <h2 class="text-center">
+		            Forgot password.
+		           </h2>
+		        
+		         <div class="form-group">
+		            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+		            <input type="email" class="form-control" placeholder="Email address" name="emailF" id="emailF" required>
+		              <span id="messEmailF"></span>  
+		         </div>
+		        
+		         <div class="form-group">
+		            <label class="sr-only" >OTP</label>
+		        	<div id='otpControl'>
+			            <input type="text" class="form-control" for="inlineFormInputName" placeholder="Mã xác nhận được gửi đến mail" name="OTP" id="OTP" required>
+			            <input type="button" class="btn btn-success" for="inlineFormInputName" id="sendOTP" value="Gửi mã.">
+			         </div>  
+		            <span id="messOTP"></span>  
+		         </div>
+
+		         <div class="form-group">
+		            <label class="sr-only" >New password</label>
+		            <input type="password" class="form-control"  placeholder="New password" name="newPassF" id="newPassF" required>
+		         </div>
+
+		         <div class="form-group">
+		            <label class="sr-only" >Repeat new password</label>
+		            <input type="password" class="form-control"  placeholder="Repeat new password" name="repNewPassF" id="repNewPassF" required>
+		            <span id="messNewPassF"></span>     
+		         </div>
+
+		         <div class="form-group">
+		            <button type="submit" id="changePassF" class="btn btn-primary btn-block">Change</button>
+		            <span id="messStatusF"></span> 
+		         </div>
+		         
+		      </form>
+		    </div>
+
+
+	   </div>
+	</div>
+
+
+
+
+
+
+<%include foot.ejs%>
+</body>
+</html>

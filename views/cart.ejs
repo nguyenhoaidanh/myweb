@@ -5,7 +5,7 @@
 	
 		<div class="container" id="content">
 			<h2>Giỏ hàng của bạn (<span id="sum"><%=data.arrayItem.length%></span> sản phẩm)</h2>
-			
+			<h3 class="alert alert-warning" id="delFromCart" style="display:none;width:400px;">Xóa khỏi giỏ hàng thành công</h3>
 				
 					<% for(var i=0; i<data.arrayItem.length; i++){ %>
 						<script> 
@@ -21,7 +21,7 @@
 						html+='&nbsp;&nbsp; <del id="oldPrice"><%=data.arrayItem[i].oldPrice%></del></p>';
 						html+='Số lượng : '+'<%=data.arrayItem[i].quantity%>';
 						html+='<p class="text-right"><button data-idIncart="<%= data.arrayItem[i].id %>"class="delFromCart btn btn-warning">Xóa</button>';
-						html+='<button class=" btn btn-success">Mua ngay</button></p>'
+						html+='<button class=" btn btn-success" onClick="alert(1)">Mua ngay</button></p>';
 						html+='</div>'; //end col
 						html+='</div>'; //end row
 						

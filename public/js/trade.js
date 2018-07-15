@@ -3,7 +3,7 @@ $(function(){
 	$("div .itemProduct").each(function(){
 			$(this).addClass("fadeInUp");
            $(this).attr('data-wow-delay',delay.toString()+'s');
-		   delay+=0.001;
+		   delay+=0.4;
     });
 
 	$('#addToCart').click(function(event) {
@@ -24,9 +24,16 @@ $(function(){
 		.done(function(data) {
 			console.log(data);
 			if(data=='Thêm vô giỏ hàng thành công.')
-			{
+			{	$('#alertToCart').html(data);
+				$('#alertToCart').css('display', 'block');
+				setTimeout(function(){ $('#alertToCart').fadeOut(); }, 3000);
 				var ret= $('#cartLable').html();
 				$('#cartLable').html(parseInt(ret)+1);
+			}
+			else if(data=='Not login')
+			{	
+				$('#alertToCart').css('display', 'block');
+				setTimeout(function(){ $('#alertToCart').fadeOut(); }, 5000);
 			}
 
 		})
@@ -53,7 +60,9 @@ $(function(){
 		.done(function(data) {
 			console.log(data);
 			if(data=='Xóa khỏi giỏ hàng thành công.')
-			{
+			{	
+				$('#delFromCart').css('display', 'block');
+				setTimeout(function(){ $('#delFromCart').fadeOut(); }, 3000);
 				var ret= $('#cartLable').html();
 				var sum=parseInt(ret)-1;		//total item in cart
 				$('#cartLable').html(sum);

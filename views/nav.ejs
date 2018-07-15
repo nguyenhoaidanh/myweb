@@ -6,7 +6,7 @@
 				 <a class="dropdown-toggle btn btn-info" data-toggle="dropdown" href="#">&nbsp;
 				 	<span class="glyphicon glyphicon-align-justify">&nbsp;</span>Danh mục sản phẩm
 				 </a>
-	               <div class="dropdown-menu " >
+	               <div class="dropdown-menu " id="quickSearch">
 	                  <ul >
 	                     <li class="list-group-item"><a href="#mypham">Mỹ phẩm</a></li>
 	                     <li class="list-group-item"><a href="#dientu">Điện tử</a></li>
@@ -19,7 +19,7 @@
 		 <div class="container">
             <a class="navbar-brand" href="/"><img src="/image/logo.png" width="80px"></img></a>
      
-		    <form class="navbar-form navbar-left" action="/search" >
+		    <form class="navbar-form navbar-left" action="/search" method="post">
 		      <div class="input-group" id="nav-form">
 		        <input type="text" class="form-control" placeholder="Search ..." name="search" id="search">
 		        <div class="input-group-btn">
@@ -36,13 +36,13 @@
 		   			 <span class="label label-warning" id="cartLable"><%=data.numberInCart%></span></a></li>
 		       <li>
 			      <a href='#modal-login' data-toggle="modal">
-				      	<img src="/image/ava.png" width="40px"></img> 
+				      	<img src="<%=data.imgSrc%>" id="ava" width="40px" height="40px"></img> 
 				       <span id="username"><%=data.username%></span>
 				       <span class="caret"> </span>
 
 				       <ul class="dropdown-menu" id="account-menu">
 				          <li class="list-group-item"><a href="/profile">Profile</a></li>
-				          <li class="list-group-item"><a href="#">More</a></li>		         
+				          <li class="list-group-item"><a href="/changePass">Change password</a></li>		         
 				          <li class="list-group-item"><a href="/logout">Logout</a></li>
 				        </ul>
 			       </a>    
@@ -79,16 +79,12 @@
 											 <label class="sr-only" for="exampleInputPassword2">Password</label>
 											 <input type="password" class="form-control"  placeholder="Password" name="pass" id="pass" required>
 											 <span id="messLogin"></span>
-                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                             <div class="help-block text-right"><a href="/changePass">Forget the password ?</a></div>
 										</div>
 										<div class="form-group">
 											 <button type="submit" id="login" class="btn btn-primary btn-block">Sign in</button>
 										</div>
-										<div class="checkbox">
-											 <label>
-											 <input type="checkbox"> keep me logged-in
-											 </label>
-										</div>
+										
 								 </form>
 
 
@@ -123,7 +119,7 @@
 										<div class="form-group">
 											 <label class="sr-only" >Email address</label>
 											 <input type="email" class="form-control" placeholder="Email address"  name="email"  required>
-											  <span id="messEmail"></span>
+											  <span id="messEmail">Sử dụng mail thật nhé. :> email tự động sẽ được gửi cho bạn nếu quên pass. Thanks</span>
 										</div>
 										<div class="form-group">
 											 <label class="sr-only" >Password</label>

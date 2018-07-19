@@ -1,87 +1,12 @@
 $(function(){
 	var delay=0;	//animation of items
 	$("div .itemProduct").each(function(){
-			$(this).addClass("fadeInUp");
+			$(this).addClass("fadeInUp");console.log(delay);
            $(this).attr('data-wow-delay',delay.toString()+'s');
-		   delay+=0.4;
+		   delay+=0.04;
     });
 
-	$('#addToCart').click(function(event) {
-		var toCart={quantity:$('#number').val(),
-			itemId:$('#idItem').html(),
-			itemName:$('#itemName').html(),
-			price:$('#price').html(),
-			oldPrice:$('#oldPrice').html(),
-			imgSrc: $('#imgSrc').attr('src'),
-
-
-		}
-		$.ajax({
-			url: '/toCart',
-			type: 'POST',
-			data: toCart,
-		})
-		.done(function(data) {
-			console.log(data);
-			if(data=='Thêm vô giỏ hàng thành công.')
-			{	$('#alertToCart').html(data);
-				$('#alertToCart').css('display', 'block');
-				setTimeout(function(){ $('#alertToCart').fadeOut(); }, 3000);
-				var ret= $('#cartLable').html();
-				$('#cartLable').html(parseInt(ret)+1);
-			}
-			else if(data=='Not login')
-			{	
-				$('#alertToCart').css('display', 'block');
-				setTimeout(function(){ $('#alertToCart').fadeOut(); }, 5000);
-			}
-
-		})
-		.fail(function() {
-			console.log("error");
-		})
-		.always(function() {
-			console.log("ajax complete");
-		});
-		
-
-	});
-
-
-	$('.delFromCart').click(function(event) {
-		var delFromCart={idInCart:$(this).attr('data-idIncart') //in table inCart then id is unique
-		}
-		var obj=$(this).parents('.row');
-		$.ajax({
-			url: '/delFromCart',
-			type: 'POST',
-			data: delFromCart,
-		})
-		.done(function(data) {
-			console.log(data);
-			if(data=='Xóa khỏi giỏ hàng thành công.')
-			{	
-				$('#delFromCart').css('display', 'block');
-				setTimeout(function(){ $('#delFromCart').fadeOut(); }, 3000);
-				var ret= $('#cartLable').html();
-				var sum=parseInt(ret)-1;		//total item in cart
-				$('#cartLable').html(sum);
-				$('#sum').html(sum);
-				//hidden item delete in cart
-				obj.remove();
-				
-			}
-
-		})
-		.fail(function() {
-			console.log("error");
-		})
-		.always(function() {
-			console.log("ajax del from cart complete");
-		});
-		
-
-	});
+	
 	
     
 });

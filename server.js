@@ -11,6 +11,8 @@ var sha1 = require('sha1');
 var nodemailer = require('nodemailer');
 
 
+
+
   
 
 const fileUpload = require('express-fileupload');
@@ -59,6 +61,7 @@ app.post('/editProfile',user.editProfile);
 app.post('/search',trade.search);
 app.post('/toCart',trade.toCart);
 app.post('/delFromCart',trade.delFromCart);
+
 app.set('port', process.env.PORT || 8080);
 app.listen(process.env.PORT || 8080);
 console.log("Create server done");

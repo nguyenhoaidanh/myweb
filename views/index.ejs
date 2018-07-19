@@ -2,6 +2,13 @@
 
 <body >
 	<%include nav.ejs%>
+
+	
+	
+	
+	
+	
+	
 	
 	<div class="caroousel">			 
 		 <div id="carousel-id" class="carousel slide" data-ride="carousel">
@@ -37,6 +44,12 @@
 		 			<div class="container">
 		 				<div class="carousel-caption wow slideInRight" data-wow-delay="0.2s">
 		 					<h1>Ajax</h1>
+
+
+
+
+
+
 		 					<p><a class="btn btn-lg btn-primary" href="#" role="button">Not click</a></p>
 		 				</div>
 		 			</div>
@@ -81,7 +94,7 @@
 				<% for(var i=0; i<data.dientu.length; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="col-md-2 itemProduct">';
+								html+='<div class="col-md-2 itemProduct wow">';
 								html+=	'<a href="/item/<%=data.dientu[i].id%>">'
 								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.dientu[i].imgSrc%>"></img>';
@@ -109,7 +122,7 @@
 				<% for(var i=0; i<data.mypham.length; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="col-md-2 itemProduct">';
+								html+='<div class="col-md-2 itemProduct wow">';
 								html+=	'<a href="/item/<%=data.mypham[i].id%>">'
 								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.mypham[i].imgSrc%>"></img>';
@@ -137,7 +150,7 @@
 				<% for(var i=0; i<data.quanao.length; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="col-md-2 itemProduct">';
+								html+='<div class="col-md-2 itemProduct wow">';
 								html+=	'<a href="/item/<%=data.quanao[i].id%>">'
 								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.quanao[i].imgSrc%>"></img>';
@@ -165,7 +178,7 @@
 				<% for(var i=0; i<data.sachvo.length; i++) { %>
 							<script>
 							var	html='';
-								html+='<div class="col-md-2 itemProduct">';
+								html+='<div class="col-md-2 itemProduct wow">';
 								html+=	'<a href="/item/<%=data.sachvo[i].id%>">'
 								html+=		'<div class="wow">';
 								html+=			'<img src="<%=data.sachvo[i].imgSrc%>"></img>';

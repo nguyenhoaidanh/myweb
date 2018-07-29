@@ -42,6 +42,7 @@ exports.login=function(req,res){
 						req.session.username=results[0][0].username;
 						req.session.userId=results[0][0].id;
 						req.session.imgSrc=results[0][0].imgSrc;
+						req.session.role=results[0][0].role;
 						sql = SqlString.format('select count(*) as numberInCart from inCart where userId=?', [req.session.userId]);
 						db.query(sql, function (err, results) {
 							if (err) throw err;
@@ -99,6 +100,7 @@ exports.signUp=function(req,res){
 										{	req.session.username=results[0][0].username;
 											req.session.userId=results[0][0].id;
 											req.session.imgSrc='';
+											req.session.role=results[0][0].role;
 											sql = SqlString.format('select count(*) as numberInCart from inCart where userId=?', [req.session.userId]);
 											db.query(sql, function (err, results) {
 												if (err) throw err;
@@ -129,11 +131,12 @@ exports.signUp=function(req,res){
 	}
 }
 exports.profile=function(req,res){
-	var data={username:req.session.username,
+	var data={
+		username:req.session.username,
 		userId:req.session.userId,
 		numberInCart:req.session.numberInCart,
-		imgSrc:req.session.imgSrc
-		
+		imgSrc:req.session.imgSrc,
+		role:req.session.role
 	};
 	sql = SqlString.format('select * from users  where id=?', [req.session.userId]);
 	db.query(sql, function (err, results) {
@@ -147,10 +150,12 @@ exports.profile=function(req,res){
 	});
 }
 exports.editProfile=function(req,res){
-	var data={username:req.session.username,
+	var data={
+		username:req.session.username,
 		userId:req.session.userId,
 		numberInCart:req.session.numberInCart,
-		imgSrc:req.session.imgSrc		
+		imgSrc:req.session.imgSrc,
+		role:req.session.role
 	};
 	var message = "";
 	if (req.method == "POST") {
@@ -200,12 +205,27 @@ exports.logout=function(req,res){
 		res.redirect("/");
 	})
 }
-var Code='-1';
-exports.changePass=function(req,res){
-	var data={username:req.session.username,
+exports.admin=function(req,res){
+	var data={
+		username:req.session.username,
 		userId:req.session.userId,
 		numberInCart:req.session.numberInCart,
-		imgSrc:req.session.imgSrc		
+		imgSrc:req.session.imgSrc,
+		role:req.session.role
+	};
+	if(data.role!='admin')
+	res.send('Đùa à, bạn không được phép');
+	else 
+		res.render('admin.ejs',{data:data});
+}
+var Code='-1';
+exports.changePass=function(req,res){
+	var data={
+		username:req.session.username,
+		userId:req.session.userId,
+		numberInCart:req.session.numberInCart,
+		imgSrc:req.session.imgSrc,
+		role:req.session.role
 	};
 	
 	if(req.method=="POST")

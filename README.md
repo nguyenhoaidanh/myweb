@@ -1,2 +1,5 @@
 # myweb
 practice myself . 
+practice html, css, javascript, jquery, bootstrap 
+trade web
+

@@ -1,0 +1,80 @@
+<%include head.ejs%>
+<body >
+	<%include nav.ejs%>
+		<link rel='stylesheet' href='/css/admin.css' type='text/css' />
+	
+		<div class="container" id="content">
+			
+			<div class="masonry">
+		    
+			    <ul class="tabs">
+			      <li><a href="#tab1" class=" ">Truy vấn</a></li>
+			      <li><a href="#tab2" class=" ">Thêm</a></li>
+			      
+			    </ul>
+			   
+			    <div class="tab_container">
+			      <span id="messAmin" class="alert alert-success pull-right" style="display:none"></span>
+			      <div id="tab1" class="tab_content">
+			        	
+			      		<ul class="list-group list-inline">
+			      			<h3>Truy vấn theo:</h3>
+			      		  <a class="btn btn-default" id="byAll" href="javascript:byAll()">Xem tất cả sản phẩm</a>
+						 <a class="btn btn-default" id="byId" href="javascript:byId()">Mã sản phẩm</a>
+						 <a class="btn btn-default" id="byName" href="javascript:byName()">Tên sản phẩm</a>
+						  <a class="btn btn-default id="byPrice" href="javascript:byPrice()">Giá</a>
+						</ul>
+
+						<div class="result-retrieve">
+						</div>
+								
+			      </div>
+			     
+			      <div id="tab2" class="tab_content">
+			        <h3>Thêm sản phẩm</h3>
+			        <div class="result-addItem">
+			        	<span id="table"></span>
+			        	<a class="btn btn-info" href="javascript:addRow()">Thêm hàng</a>
+					</div>
+			        <script>
+			       
+			        $('#table').html(createTableAddItem());
+			       </script>
+			      </div>
+			     
+			      
+
+			    </div> <!-- tab container -->
+		 
+		  </div> <!-- end masonry -->
+		</div><!-- end content -->
+
+			
+	
+		
+		<!-- Modal confirm -->
+		<div id="confirm" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h1 class="modal-title text-center">Xác nhận</h1>
+		      </div>
+		      <div class="modal-body text-center">
+		        <h3>Bạn có chắc chắn thực hiện việc này không?</h3>
+		      </div>
+		      <div class="modal-footer text-center">
+		      	<button type="button" class="btn btn-danger" id="yes" data-dismiss="modal">Đồng ý</button>
+		        <button type="button" class="btn btn-default" id="no" data-dismiss="modal">Hủy bỏ</button>
+		      </div>
+		    </div>
+
+		  </div>
+		</div>
+			
+
+	<%include foot.ejs%>
+</body >
+</html>

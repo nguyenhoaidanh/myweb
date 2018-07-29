@@ -17,8 +17,8 @@
 						html+='<div class="col-md-5 col-md-offset-1 item">';
 						html+='<h3 id="itemName" ><%= data.arrayItem[i].itemName %></h3>';
 						
-						html+='<p ><span class="glyphicon glyphicon-usd"></span><span id="price"><%=data.arrayItem[i].price%></span>';
-						html+='&nbsp;&nbsp; <del id="oldPrice"><%=data.arrayItem[i].oldPrice%></del></p>';
+						html+='<p ><span class="glyphicon glyphicon-usd"></span><span id="price"><%=data.arrayItem[i].price%> đ</span>';
+						html+='&nbsp;&nbsp; <del id="oldPrice"><%=data.arrayItem[i].oldPrice%> đ</del></p>';
 						html+='Số lượng : '+'<%=data.arrayItem[i].quantity%>';
 						html+='<p class="text-right"><button data-idIncart="<%= data.arrayItem[i].id %>"class="delFromCart btn btn-warning">Xóa</button>';
 						html+='<button class=" btn btn-success" onClick="alert(1)">Mua ngay</button></p>';

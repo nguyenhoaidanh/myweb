@@ -10,8 +10,8 @@ var session = require('express-session');
 var sha1 = require('sha1');
 var nodemailer = require('nodemailer');
 
-
-
+var request = require('request');
+var formidable=require('formidable');
 
   
 
@@ -34,8 +34,10 @@ app.use(bodyParser.urlencoded({
 }));
 global.nodemailer=nodemailer;
 global.db = connection;
+global.formidable=formidable
 global.SqlString = SqlString;
 global.sha1 = sha1;
+global.request=request;
 app.use(session({
     secret: 'axxxxxxxxaaaaa',
     resave: false,
@@ -53,8 +55,17 @@ app.get('/logout',user.logout);
 app.get('/profile',user.profile);
 app.get('/editProfile',user.editProfile);
 app.get('/changePass',user.changePass);
-app.post('/changePass',user.changePass);
+app.get('/admin',user.admin);
+app.get('/retrieve',trade.retrieve);
+app.post('/updateItem',trade.updateItem);
 
+app.post('/addItem',trade.addItem);
+
+app.post('/removeItem',trade.removeItem);
+app.post('/retrieve',trade.retrieve);
+app.post('/admin',user.admin);
+app.post('/changePass',user.changePass);
+app.post('/chat',trade.chat);
 app.post('/',user.login);
 app.post('/profile',user.signUp);
 app.post('/editProfile',user.editProfile);

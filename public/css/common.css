@@ -6,6 +6,12 @@ body
 {
 	background-color: #dddbd2;
 }
+#avatar
+{
+	
+	width: 300px;
+}
+
 #cartLable
 {
 	font-size: 13px;
@@ -132,14 +138,113 @@ nav.scale
 	width:55px;
 	background-color:lightblue;
 }
+#chatBtn
+{
+	width: 124px;
+}
+#chatContent
+{	overflow: auto;
+	background-color: white;
+	display:block;
+	width:100px;
+	height:0px;
+	transition: 0.2s;
+}
+
+.chatMess
+{
+	max-width: 220px;
+	display: inline-block;
+}
+.chatMess > p
+{
+	padding: 2px 5px 0px 5px;
+}
+.chatMess.admin
+{
+	background-color: gray;
+	 margin-left:15px;
+	 border-radius:15px 15px 15px 0px;
+}
+.chatMess.user
+{	border-radius:15px 15px 0px 15px;
+	background-color: lightblue;
+	
+}
+.chat
+{	position: fixed;
+	right: 0px;
+	bottom: 0px;
+}
+#yourMess
+{	text-align: left;
+	width: 300px;
+	padding-left: 10px;
+	padding-right: 10px;
+	bottom: 0;
+	position: fixed;
+	transition: 0.2s;
+	display: none;
+}
+
+
 footer
 {
 	clear:both;
 	text-align:center;
 	background-color:#bf0000;
-	height:40px;
+	height:140px;
 	width:100vw;
 	color:white;
-	padding: 10px;
+	
+}
+/* Tab css */
+.masonry {
+ 
+  margin: 0 auto;
 }
 
+.tabs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  border-bottom: 1px solid #999;
+}
+
+.tabs li {
+  float: left;
+  border: 1px solid #999;
+  border-bottom: none;
+  background: #e0e0e0;
+}
+
+.tabs li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+}
+
+.tabs li a:hover {
+  background: #ccc;
+}
+
+.tabs li.active,
+.tabs li.active a:hover {
+  font-weight: bold;
+  background: green !important;
+}
+
+.tab_container {
+  border: 1px solid #999;
+  border-top: none;
+  background: #fff;
+}
+
+.tab_content {
+  padding: 20px;
+  font-size: 16px;
+  min-height: 350px;
+}

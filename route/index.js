@@ -3,7 +3,8 @@ exports.index=function(req,res){
 		username:req.session.username,
 		userId:req.session.userId,
 		numberInCart:req.session.numberInCart,
-		imgSrc:req.session.imgSrc
+		imgSrc:req.session.imgSrc,
+		role:req.session.role
 	};
 	var sql= SqlString.format("select*from item where type='Điện tử'");
 	db.query(sql, function (err, results) {
@@ -29,7 +30,7 @@ exports.index=function(req,res){
 								else{
 									data.sachvo=results;
 									res.render('index',{data:data});
-									console.log(data);
+									
 								}
 							});
 

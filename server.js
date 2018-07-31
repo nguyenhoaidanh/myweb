@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var bodyParser = require("body-parser");
 var user = require('./route/user');
 var trade = require('./route/trade');
+var admin = require('./route/admin');
 var index= require('./route/index');
 var SqlString = require('sqlstring');
 var session = require('express-session');
@@ -38,6 +39,14 @@ global.formidable=formidable
 global.SqlString = SqlString;
 global.sha1 = sha1;
 global.request=request;
+
+
+
+
+
+
+
+
 app.use(session({
     secret: 'axxxxxxxxaaaaa',
     resave: false,
@@ -55,7 +64,7 @@ app.get('/logout',user.logout);
 app.get('/profile',user.profile);
 app.get('/editProfile',user.editProfile);
 app.get('/changePass',user.changePass);
-app.get('/admin',user.admin);
+app.get('/admin',admin.admin);
 app.get('/retrieve',trade.retrieve);
 app.post('/updateItem',trade.updateItem);
 
@@ -63,7 +72,7 @@ app.post('/addItem',trade.addItem);
 
 app.post('/removeItem',trade.removeItem);
 app.post('/retrieve',trade.retrieve);
-app.post('/admin',user.admin);
+app.post('/admin',admin.admin);
 app.post('/changePass',user.changePass);
 app.post('/chat',trade.chat);
 app.post('/',user.login);

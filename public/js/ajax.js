@@ -10,6 +10,7 @@ $(function(){
 
 
 		}
+		
 		$.ajax({
 			url: '/toCart',
 			type: 'POST',

@@ -181,9 +181,7 @@ exports.addItem=function(req,res){
 				res.send('addItem done');
 			}
 		});
-		
-		
-		
+				
 	}
 }
 exports.updateItem=function(req,res){
@@ -230,12 +228,12 @@ exports.toCart=function(req,res){
 		res.send('Not login');	
 	}
 	else
-	{	
+	{	console.log(userId+itemId+itemName+price+oldPrice+quantity+imgSrc);
 		var sql=SqlString.format("insert into inCart(userId,itemId,itemName,price,oldPrice,quantity,imgSrc) values(?,?,?,?,?,?,?)",[userId,itemId,itemName,price,oldPrice,quantity,imgSrc]);
 		db.query(sql, function (err, results) {
 			if (err) throw err;
 			else { 
-
+				console.log(11111111111111111);
 				req.session.numberInCart++;
 				res.send('Thêm vô giỏ hàng thành công.')
 			}
